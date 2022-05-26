@@ -1,0 +1,71 @@
+# == Schema Information
+#
+# Table name: repositories
+#
+#  id         :bigint           not null, primary key
+#  name       :string           not null
+#  path       :string           not null
+#  github_url :string           not null
+#  clone_url  :string           not null
+#  created_at :datetime         not null
+#  updated_at :datetime         not null
+#
+class Repository < ApplicationRecord
+  has_many :commits, dependent: :restrict_with_error
+  has_many :coders, -> { uniq }, through: :commits
+
+  validate :not_filtered, on: :create
+
+  before_create :set_path
+  after_save :reprocess_delayed
+
+  def self.create_or_update_from_github_api(name, github_url, clone_url)
+    Repository.find_or_initialize_by(name:) do |r|
+      r.github_url = github_url
+      r.clone_url = clone_url
+    end.save
+  end
+
+  private
+
+  def set_path
+    self.path = Rails.root.join("repos/#{name.parameterize}")
+  end
+
+  def not_filtered
+    errors.add(:name, 'filtered') if Rails.application.config.repo_name_deny_list.include?(name)
+  end
+
+  def reprocess_delayed
+    delay.reprocess
+  end
+
+  def reprocess
+    pull_or_clone
+    process_commits
+  end
+
+  def process_commits
+    rugged_repo.tap do |r|
+      walker = Rugged::Walker.new(r)
+      r.branches.each { |b| walker.push b.target_id }
+      walker.each { |c| Commit.from_rugged(c, self) }
+    end
+  end
+
+  def pull_or_clone
+    if Dir.exist?(path)
+      logger.info("Fetching #{name} and resetting to FETCH_HEAD")
+      rugged_repo.tap do |r|
+        r.remotes.each(&:fetch)
+        r.reset('FETCH_HEAD', :hard)
+      end
+    else
+      Rugged::Repository.clone_at(clone_url, path)
+    end
+  end
+
+  def rugged_repo
+    Rugged::Repository.new(path)
+  end
+end

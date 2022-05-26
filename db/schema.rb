@@ -10,7 +10,67 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 0) do
+ActiveRecord::Schema[7.0].define(version: 2022_05_26_194217) do
   # These are extensions that must be enabled in order to support this database
-  enable_extension 'plpgsql'
+  enable_extension "plpgsql"
+
+  create_table "coders", force: :cascade do |t|
+    t.string "full_name", null: false
+    t.string "github_name", null: false
+    t.string "avatar_url", null: false
+    t.string "github_url", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "commits", force: :cascade do |t|
+    t.bigint "coder_id", null: false
+    t.bigint "repository_id", null: false
+    t.string "sha", null: false
+    t.integer "additions", null: false
+    t.integer "deletions", null: false
+    t.datetime "committed_at", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["coder_id"], name: "index_commits_on_coder_id"
+    t.index ["repository_id"], name: "index_commits_on_repository_id"
+  end
+
+  create_table "delayed_jobs", force: :cascade do |t|
+    t.integer "priority", default: 0, null: false
+    t.integer "attempts", default: 0, null: false
+    t.text "handler", null: false
+    t.text "last_error"
+    t.datetime "run_at"
+    t.datetime "locked_at"
+    t.datetime "failed_at"
+    t.string "locked_by"
+    t.string "queue"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.index ["priority", "run_at"], name: "delayed_jobs_priority"
+  end
+
+  create_table "git_identities", force: :cascade do |t|
+    t.string "name", null: false
+    t.string "email", null: false
+    t.bigint "coder_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["coder_id"], name: "index_git_identities_on_coder_id"
+    t.index ["name", "email"], name: "index_git_identities_on_name_and_email", unique: true
+  end
+
+  create_table "repositories", force: :cascade do |t|
+    t.string "name", null: false
+    t.string "path", null: false
+    t.string "github_url", null: false
+    t.string "clone_url", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_foreign_key "commits", "coders"
+  add_foreign_key "commits", "repositories"
+  add_foreign_key "git_identities", "coders"
 end

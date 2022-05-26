@@ -5,10 +5,10 @@ require 'rails'
 require 'active_model/railtie'
 require 'active_job/railtie'
 require 'active_record/railtie'
-require 'active_storage/engine'
 require 'action_controller/railtie'
+# require 'active_storage/engine'
 # require "action_mailer/railtie"
-require 'action_mailbox/engine'
+# require 'action_mailbox/engine'
 # require "action_text/engine"
 require 'action_view/railtie'
 # require "action_cable/engine"
@@ -20,15 +20,20 @@ Bundler.require(*Rails.groups)
 
 module Gamification2
   class Application < Rails::Application
-    # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 7.0
-
-    # Configuration for the application, engines, and railties goes here.
-    #
-    # These settings can be overridden in specific environments using the files
-    # in config/environments, which are processed later.
-    #
-    # config.time_zone = "Central Time (US & Canada)"
-    # config.eager_load_paths << Rails.root.join("extras")
+    config.active_job.queue_adapter = :delayed_job
+    config.organisation = 'ZeusWPI'
+    config.repo_name_deny_list = %w[
+      glowing-octo-dubstep
+      VPW-voorbereiding-2015
+      VPW-voorbereiding-2014
+      contests
+      Bestuurstaakjes
+      SumoRoboComp
+      kaggle-rta
+      manage-user
+      website-manage
+      errbit
+    ]
   end
 end

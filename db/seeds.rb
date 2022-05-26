@@ -5,3 +5,10 @@
 #
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
+
+github = Rails.application.config.github
+repos = github.repos.list :all, org: Rails.application.config.organisation
+repos.each do |hash|
+  puts "Creating or updating #{hash['name']}"
+  Repository.create_or_update_from_github_api(hash['name'], hash['html_url'], hash['clone_url']) unless hash['private']
+end

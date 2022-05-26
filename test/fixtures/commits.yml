@@ -1,0 +1,30 @@
+# == Schema Information
+#
+# Table name: commits
+#
+#  id            :bigint           not null, primary key
+#  coder_id      :bigint           not null
+#  repository_id :bigint           not null
+#  sha           :string           not null
+#  additions     :integer          not null
+#  deletions     :integer          not null
+#  committed_at  :datetime         not null
+#  created_at    :datetime         not null
+#  updated_at    :datetime         not null
+#
+
+one:
+  coder: one
+  repository: one
+  sha: MyString
+  additions: 1
+  deletions: 1
+  committed_at: 2022-05-26 20:25:59
+
+two:
+  coder: two
+  repository: two
+  sha: MyString
+  additions: 1
+  deletions: 1
+  committed_at: 2022-05-26 20:25:59

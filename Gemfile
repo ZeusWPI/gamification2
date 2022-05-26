@@ -30,6 +30,15 @@ gem 'cssbundling-rails'
 # Build JSON APIs with ease [https://github.com/rails/jbuilder]
 gem 'jbuilder'
 
+# Walk commits in repositories
+gem 'rugged'
+
+# Use GitHub API to fetch repositories
+gem 'github_api'
+
+# Use delayed job for executing jobs in the background
+gem 'delayed_job_active_record'
+
 # Use Kredis to get higher-level data types in Redis [https://github.com/rails/kredis]
 # gem "kredis"
 
@@ -54,6 +63,7 @@ group :development, :test do
 end
 
 group :development do
+  gem 'annotate', '~> 3.2'
   gem 'rubocop-minitest', '~> 0.19.1'
   gem 'rubocop-rails', '~> 2.14'
   gem 'web-console'

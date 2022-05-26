@@ -1,0 +1,24 @@
+# == Schema Information
+#
+# Table name: coders
+#
+#  id          :bigint           not null, primary key
+#  full_name   :string           not null
+#  github_name :string           not null
+#  avatar_url  :string           not null
+#  github_url  :string           not null
+#  created_at  :datetime         not null
+#  updated_at  :datetime         not null
+#
+
+one:
+  full_name: MyString
+  github_name: MyString
+  avatar_url: MyString
+  github_url: MyString
+
+two:
+  full_name: MyString
+  github_name: MyString
+  avatar_url: MyString
+  github_url: MyString

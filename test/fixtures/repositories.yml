@@ -1,0 +1,24 @@
+# == Schema Information
+#
+# Table name: repositories
+#
+#  id         :bigint           not null, primary key
+#  name       :string           not null
+#  path       :string           not null
+#  github_url :string           not null
+#  clone_url  :string           not null
+#  created_at :datetime         not null
+#  updated_at :datetime         not null
+#
+
+one:
+  name: MyString
+  path: MyString
+  github_url: MyString
+  clone_url: MyString
+
+two:
+  name: MyString
+  path: MyString
+  github_url: MyString
+  clone_url: MyString
