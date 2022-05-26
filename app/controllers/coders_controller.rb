@@ -1,9 +1,5 @@
 class CodersController < ApplicationController
-  def index
-    @coders = Coder.all
-  end
-
   def show
-    @coder = Coder.find(params[:id])
+    @coder = Coder.with_metrics.find_by(github_name: params[:id])
   end
 end

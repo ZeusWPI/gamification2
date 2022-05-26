@@ -24,16 +24,17 @@ module Gamification2
     config.active_job.queue_adapter = :delayed_job
     config.organisation = 'ZeusWPI'
     config.repo_name_deny_list = %w[
-      glowing-octo-dubstep
-      VPW-voorbereiding-2015
-      VPW-voorbereiding-2014
-      contests
       Bestuurstaakjes
+      NodePizza2019
       SumoRoboComp
+      VPW-voorbereiding-2014
+      VPW-voorbereiding-2015
+      contests
+      errbit
+      glowing-octo-dubstep
       kaggle-rta
       manage-user
       website-manage
-      errbit
     ]
   end
 end

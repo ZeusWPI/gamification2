@@ -1,10 +1,5 @@
-<p style="color: green"><%= notice %></p>
-
-<%= render @coder %>
-
-<div>
-  <%= link_to "Edit this coder", edit_coder_path(@coder) %> |
-  <%= link_to "Back to coders", coders_path %>
-
-  <%= button_to "Destroy this coder", @coder, method: :delete %>
-</div>
+<%= image_tag @coder.avatar_url %>
+<h1>
+    <%= @coder.github_name %>
+    <%= link_to image_tag('github.png'), @coder.github_url, title: 'View profile on Github' %>
+</h1>

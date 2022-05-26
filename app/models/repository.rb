@@ -14,7 +14,7 @@ class Repository < ApplicationRecord
   has_many :commits, dependent: :restrict_with_error
   has_many :coders, -> { uniq }, through: :commits
 
-  validate :not_filtered, on: :create
+  validate :not_filtered
 
   before_create :set_path
   after_save :reprocess_delayed

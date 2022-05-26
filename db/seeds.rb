@@ -9,6 +9,7 @@
 github = Rails.application.config.github
 repos = github.repos.list :all, org: Rails.application.config.organisation
 repos.each do |hash|
-  puts "Creating or updating #{hash['name']}"
-  Repository.create_or_update_from_github_api(hash['name'], hash['html_url'], hash['clone_url']) unless hash['private']
+  next if hash['private']
+  saved = Repository.create_or_update_from_github_api(hash['name'], hash['html_url'], hash['clone_url'])
+  puts "Creating or updating #{hash['name']}" if saved
 end

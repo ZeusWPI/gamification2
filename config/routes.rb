@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
-  resources :commits, only: %i[index show]
-  resources :coders, only: %i[index show]
+  root 'pages#top4'
+  get 'scoreboard', to: 'pages#scoreboard'
+  post 'webhook', to: 'webhook#receive'
+  resources :coders, only: %i[show]
   resources :repositories, only: %i[index show]
 end
