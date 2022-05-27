@@ -1,0 +1,10 @@
+<th class="has-text-right">
+    <%= link_to scoreboard_path(order_by: value) do %>
+        <% if @sort_column == value %>
+            <span class="icon">
+                <i class="mdi mdi-18 mdi-sort-numeric-descending"></i>
+            </span>
+        <% end %>
+        <%= name %>
+    <% end %>
+</th>
