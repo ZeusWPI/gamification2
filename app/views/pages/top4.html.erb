@@ -1,0 +1,40 @@
+<section class="section">
+    <h1 class="title is-1">Weekly overview</h1>
+    <div class="panel">
+        <% @coders.each.with_index do |coder, i| %>
+            <%= link_to coder_path(coder.github_name), class: "panel-block" do %>
+                <article class="media is-align-items-center is-flex-grow-1">
+                    <figure class="media-left">
+                        <% if i == 0 %>
+                            <p class="image is-128x128">
+                                <%= image_tag(coder.avatar_url, class: "is-rounded") %>
+                            </p>
+                        <% else %>
+                            <div class="columns is-align-items-center">
+                                <div class="column">
+                                    <h2 class="title is-2"><%= i + 1 %>.</h2>
+                                </div>
+                                <div class="column">
+                                    <p class="image is-64x64 is-rounded">
+                                        <%= image_tag(coder.avatar_url, class: "is-rounded") %>
+                                    </p>
+                                </div>
+                            </div>
+                        <% end %>
+                    </figure>
+                    <div class="media-content is-flex is-flex-direction-row is-justify-content-space-between is-align-items-center">
+                        <div class="block">
+                            <h4 class="title is-4"><%= coder.github_name %></h4>
+                            <% if coder.full_name.present? %>
+                                <h6 class="subtitle is-6"><%= coder.full_name %></h6>
+                            <% end %>
+                        </div>
+                        <div class="block">
+                            <p class="<%= i == 0 ? "is-size-1" : "is-size-3" %>"><%= coder.score %></p>
+                        </div>
+                    </div>
+                </article>
+            <% end %>
+        <% end %>
+    </div>
+</section>

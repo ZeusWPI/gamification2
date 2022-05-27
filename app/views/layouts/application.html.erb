@@ -5,11 +5,27 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
   </head>
 
   <body>
-    <%= yield %>
+      <nav class="navbar is-primary" role="navigation" aria-label="main navigation">
+          <div class="navbar-brand">
+              <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="gamification-navbar">
+                  <span aria-hidden="true"></span>
+                  <span aria-hidden="true"></span>
+                  <span aria-hidden="true"></span>
+              </a>
+              <%= link_to "Gamification 2", root_path, class: "navbar-item #{'is-active' if current_page?(root_path)}" %>
+          </div>
+          <div id="gamification-navbar" class="navbar-menu">
+              <%= link_to "Scoreboard", scoreboard_path, class: "navbar-item #{'is-active' if current_page?(scoreboard_path)}" %>
+              <%= link_to "Repos", repositories_path, class: "navbar-item #{'is-active' if current_page?(repositories_path)}" %>
+          </div>
+      </nav>
+      <div class="container">
+          <%= yield %>
+      </div>
   </body>
 </html>
