@@ -12,7 +12,7 @@
 #
 class Repository < ApplicationRecord
   has_many :commits, dependent: :restrict_with_error
-  has_many :coders, -> { uniq }, through: :commits
+  has_many :coders, -> { distinct }, through: :commits
 
   validate :not_filtered
 
