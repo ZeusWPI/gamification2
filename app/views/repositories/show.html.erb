@@ -1,7 +1,42 @@
-<p style="color: green"><%= notice %></p>
 
-<%= render @repository %>
+<section class="section">
+    <h1 class="title is-size-1">
+        <%= @repository.name %>
+        <%= link_to image_tag('github.png'), @repository.github_url, title: 'View repository on Github' %>
+    </h1>
 
-<div>
-  <%= link_to "Back to repositories", repositories_path %>
-</div>
+    <table class="table is-striped is-fullwidth">
+        <thead>
+            <tr>
+                <th></th>
+                <th>Contributor</th>
+                <%= render "sortable_header", { name: "Score", value: "score" } %>
+                <%= render "sortable_header", { name: "Commits", value: "commit_count" } %>
+                <%= render "sortable_header", { name: "Additions", value: "additions" } %>
+                <%= render "sortable_header", { name: "Deletions", value: "deletions" } %>
+            </tr>
+        </thead>
+        <tbody>
+            <% @coders.each.with_index do |coder, i| %>
+                <tr>
+                    <td class="is-flex is-flex-direction-row is-align-items-center is-justify-content-end">
+                        <p class="is-size-2"><%= i + 1 %>.</p>
+                        <p class="image is-64x64 mx-2">
+                            <%= image_tag(coder.avatar_url, class: "is-rounded") %>
+                        </p>
+                    </td>
+                    <td class="is-vcentered">
+                        <p class="is-size-5"><%= link_to coder.github_name, coder_path(coder.github_name) %></p>
+                        <% if coder.full_name.present? %>
+                            <p><%= coder.full_name %></p>
+                        <% end %>
+                    </td>
+                    <td class="is-vcentered has-text-right"><%= coder.score %></td>
+                    <td class="is-vcentered has-text-right"><%= coder.commit_count %></td>
+                    <td class="is-vcentered has-text-right"><%= coder.additions %></td>
+                    <td class="is-vcentered has-text-right"><%= coder.deletions %></td>
+                </tr>
+            <% end %>
+        </tbody>
+    </table>
+</section>

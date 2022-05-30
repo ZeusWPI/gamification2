@@ -6,6 +6,13 @@ class RepositoriesController < ApplicationController
   end
 
   def show
-    @repository = Repository.find(params[:id])
+    @repository = Repository.find_by(name: params[:id])
+
+    @sort_column = params[:order_by]
+    @sort_column = 'score' unless %w[score commit_count additions deletions].include?(@sort_column)
+    @coders = Coder.extending(CommitStats)
+                   .with_commit_stats
+                   .where(commits: { repository_id: @repository.id })
+                   .order({ @sort_column => :desc })
   end
 end
