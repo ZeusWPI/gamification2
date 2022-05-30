@@ -12,14 +12,7 @@
   <body>
       <nav class="navbar is-primary" role="navigation" aria-label="main navigation">
           <div class="navbar-brand">
-              <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="gamification-navbar">
-                  <span aria-hidden="true"></span>
-                  <span aria-hidden="true"></span>
-                  <span aria-hidden="true"></span>
-              </a>
               <%= link_to "Gamification 2", root_path, class: "navbar-item #{'is-active' if current_page?(root_path)}" %>
-          </div>
-          <div id="gamification-navbar" class="navbar-menu">
               <%= link_to "Scoreboard", coders_path, class: "navbar-item #{'is-active' if current_page?(coders_path)}" %>
               <%= link_to "Repos", repositories_path, class: "navbar-item #{'is-active' if current_page?(repositories_path)}" %>
           </div>

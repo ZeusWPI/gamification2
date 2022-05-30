@@ -1,5 +1,44 @@
-<%= image_tag @coder.avatar_url %>
-<h1>
-    <%= @coder.github_name %>
-    <%= link_to image_tag('github.png'), @coder.github_url, title: 'View profile on Github' %>
-</h1>
+<section class="section">
+    <div class="columns is-desktop">
+        <div class="column">
+            <article class="media is-align-items-center is-flex-grow-1">
+                <figure class="media-left">
+                    <p class="image is-128x128">
+                        <%= image_tag(@coder.avatar_url, class: "is-rounded") %>
+                    </p>
+                </figure>
+                <div class="media-content">
+                    <h1 class="title is-1">
+                        <%= @coder.github_name %>
+                        <%= link_to image_tag('github.png'), @coder.github_url, title: 'View profile on Github' %>
+                    </h1>
+                    <% if @coder.full_name.present? %>
+                        <h3 class="subtitle is-3"><%= @coder.full_name %></h3>
+                    <% end %>
+                </div>
+            </article>
+        </div>
+        <div class="column is-flex is-flex-direction-column is-align-items-stretch">
+            <h2 class="subtitle is-2 mx-auto">
+                <%= number_with_delimiter @coder.score, delimiter: '&nbsp;'.html_safe %>
+                <span class="is-size-4">points</span>
+            </h2>
+            <div class="is-flex is-flex-direction-row is-justify-content-space-evenly">
+                <h3 class="subtitle is-3">
+                    <%= number_with_delimiter @coder.commit_count, delimiter: '&nbsp;'.html_safe %>
+                    <span class="is-size-5">commits</span>
+                </h3>
+                <h3 class="subtitle is-3">
+                    <%= number_with_delimiter @coder.additions, delimiter: '&nbsp;'.html_safe %>
+                    <span class="is-size-5">additions</span>
+                </h3>
+                <h3 class="subtitle is-3">
+                    <%= number_with_delimiter @coder.deletions, delimiter: '&nbsp;'.html_safe %>
+                    <span class="is-size-5">deletions</span>
+                </h3>
+            </div>
+        </div>
+    </div>
+
+    <%= render 'repositories/table', { repositories: @repositories, skip_coder_count: true } %>
+</section>
