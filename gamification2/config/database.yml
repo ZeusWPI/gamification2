@@ -87,6 +87,4 @@ test:
 #
 production:
   <<: *default
-  database: gamification2_production
-  username: gamification2
-  password: <%= ENV["GAMIFICATION2_DATABASE_PASSWORD"] %>
+  url: <%= ENV["DATABASE_URL"] %>

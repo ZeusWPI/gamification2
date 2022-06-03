@@ -1,0 +1,45 @@
+version: '3.5'
+services:
+  gamification2:
+    build:
+      context: .
+      dockerfile: ./server.dockerfile
+    ports:
+      - "40004:3000"
+    restart: on-failure
+    depends_on:
+      - database
+    volumes:
+      - gamification-repos:/app/repos
+    env_file:
+      - .env
+
+  runner:
+    build:
+      context: .
+      dockerfile: ./runner.dockerfile
+    restart: on-failure
+    depends_on:
+      - database
+    volumes:
+      - gamification-repos:/app/repos
+    env_file:
+      - .env
+
+  database:
+    image: postgres:13-alpine
+    restart: on-failure
+    environment:
+      POSTGRES_USER: gamification2
+      POSTGRES_PASSWORD: gamification2
+    volumes:
+      - gamification-database:/var/lib/postgresql/data
+    healthcheck:
+      test: "pg_isready -U gamification2"
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+volumes:
+  gamification-database:
+  gamification-repos:
