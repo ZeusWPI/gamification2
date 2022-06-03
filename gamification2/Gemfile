@@ -39,6 +39,9 @@ gem 'github_api'
 # Use delayed job for executing jobs in the background
 gem 'delayed_job_active_record'
 
+# Set CORS headers
+gem 'rack-cors'
+
 # Use Kredis to get higher-level data types in Redis [https://github.com/rails/kredis]
 # gem "kredis"
 
