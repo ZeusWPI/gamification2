@@ -9,8 +9,9 @@ RUN apt-get update && apt-get install -y --no-install-recommends nodejs yarn cma
 RUN gem install bundler
 WORKDIR /app
 
-COPY gamification2 .
+COPY . .
 RUN bundle
-RUN yarn install
+
 RUN bundle exec rails assets:precompile
+
 CMD bundle exec rails db:prepare && bundle exec unicorn -c config/unicorn.rb

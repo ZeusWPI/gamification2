@@ -9,6 +9,6 @@ RUN apt-get update && apt-get install -y --no-install-recommends nodejs yarn cma
 RUN gem install bundler
 WORKDIR /app
 
-COPY gamification2 .
+COPY . .
 RUN bundle
 CMD bundle exec rails jobs:work
