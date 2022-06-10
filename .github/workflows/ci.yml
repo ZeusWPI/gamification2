@@ -34,7 +34,7 @@ jobs:
         CI: true
         CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
       run: |
-        bundle exec rails db:setup
+        bundle exec rails db:create
         bundle exec rails test
   lint:
     runs-on: ubuntu-latest
