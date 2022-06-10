@@ -29,8 +29,14 @@ jobs:
       uses: ruby/setup-ruby@v1
       with:
         bundler-cache: true
+    - name: Use node
+      uses: actions/setup-node@v3
+      with:
+        cache: yarn
     - name: Run tests
       run: |
+        yarn install
+        yarn run build:css
         bundle exec rails db:create
         bundle exec rails test
   lint:
