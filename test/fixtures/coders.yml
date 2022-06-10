@@ -12,13 +12,13 @@
 #
 
 one:
-  full_name: MyString
-  github_name: MyString
-  avatar_url: MyString
-  github_url: MyString
+  full_name: Charlotte Van Petegem
+  github_name: chvp
+  avatar_url: https://avatar.com/chvp
+  github_url: https://github.com/chvp
 
 two:
-  full_name: MyString
-  github_name: MyString
-  avatar_url: MyString
-  github_url: MyString
+  full_name: Linus Torvalds
+  github_name: torvalds
+  avatar_url: https://avatar.com/linus
+  github_url: https://github.com/torvalds

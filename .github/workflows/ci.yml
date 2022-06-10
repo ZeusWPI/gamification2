@@ -1,0 +1,52 @@
+name: CI
+
+on:
+  push:
+    branches:
+      - main
+    tags:
+      - '*'
+  pull_request:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    env:
+      RAILS_ENV: "test"
+      DATABASE_HOST: "127.0.0.1"
+    services:
+      postgresql:
+        image: postgres
+        env:
+          POSTGRES_USER: "gamification2"
+          POSTGRES_PASSWORD: "gamification2"
+        ports:
+        - 5432:5432
+        options: --health-cmd pg_isready --health-interval 10s --health-timeout 5s --health-retries 5
+    steps:
+    - uses: actions/checkout@v3
+    - name: Setup ruby from /.ruby_version
+      uses: ruby/setup-ruby@v1
+      with:
+        bundler-cache: true
+    - name: Use node
+      uses: actions/setup-node@v3
+      with:
+        cache: yarn
+    - name: Run tests
+      run: |
+        yarn install
+        yarn run build:css
+        bundle exec rails db:create
+        bundle exec rails test
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+    - name: Setup ruby from /.ruby_version
+      uses: ruby/setup-ruby@v1
+      with:
+        bundler-cache: true
+    - name: Lint with rubocop
+      run: |
+        bundle exec rubocop -c .rubocop.yml

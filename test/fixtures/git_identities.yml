@@ -11,11 +11,16 @@
 #
 
 one:
-  name: MyString
-  email: MyString
+  name: chvp
+  email: chvp@example.com
   coder: one
 
 two:
-  name: MyString
-  email: MyString
+  name: charlottevp
+  email: charlottevp@example.com
+  coder: one
+
+three:
+  name: linus
+  email: linus@example.com
   coder: two
