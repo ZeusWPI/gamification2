@@ -16,15 +16,15 @@
 one:
   coder: one
   repository: one
-  sha: MyString
+  sha: abcdef
   additions: 1
-  deletions: 1
+  deletions: 2
   committed_at: 2022-05-26 20:25:59
 
 two:
   coder: two
   repository: two
-  sha: MyString
-  additions: 1
+  sha: bdcdefg
+  additions: 2
   deletions: 1
   committed_at: 2022-05-26 20:25:59

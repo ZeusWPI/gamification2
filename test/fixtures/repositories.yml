@@ -12,13 +12,13 @@
 #
 
 one:
-  name: MyString
-  path: MyString
-  github_url: MyString
-  clone_url: MyString
+  name: gamification
+  path: repos/gamification
+  github_url: https://github.com/ZeusWPI/gamification
+  clone_url: https://github.com/ZeusWPI/gamification.git
 
 two:
-  name: MyString
-  path: MyString
-  github_url: MyString
-  clone_url: MyString
+  name: gamification2
+  path: repos/gamification2
+  github_url: https://github.com/ZeusWPI/gamification2
+  clone_url: https://github.com/ZeusWPI/gamification2.git
