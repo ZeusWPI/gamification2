@@ -10,7 +10,7 @@ gem 'rails', '~> 7.0.3'
 gem 'sprockets-rails'
 
 # Use postgresql as the database for Active Record
-gem 'pg', '~> 1.1'
+gem 'pg', '~> 1.4'
 
 # Use unicorn in production
 gem 'unicorn', '~> 6.1'
