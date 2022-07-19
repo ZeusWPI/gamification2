@@ -7,10 +7,10 @@ class WebhookController < ApplicationController
     return head :ok unless event == 'push'
 
     repo_data = request.params['repository']
-    return head :ok unless repo_data['owner']['login'] == Rails.application.config.organisation
+    return head :ok unless Rails.application.config.organisations.include?(repo_data['owner']['login'])
     return head :ok if repo_data['private']
 
-    Repository.create_or_update_from_github_api(repo_data['name'], repo_data['html_url'], repo_data['clone_url'])
+    Repository.create_or_update_from_github_api(repo_data['owner']['login'], repo_data['name'], repo_data['html_url'], repo_data['clone_url'])
 
     head :ok
   end

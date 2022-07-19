@@ -22,7 +22,7 @@ module Gamification2
   class Application < Rails::Application
     config.load_defaults 7.0
     config.active_job.queue_adapter = :delayed_job
-    config.organisation = 'ZeusWPI'
+    config.organisations = %w[ZeusWPI 12urenloop]
     config.repo_name_deny_list = %w[
       Bestuurstaakjes
       NodePizza2019

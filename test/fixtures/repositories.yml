@@ -2,23 +2,26 @@
 #
 # Table name: repositories
 #
-#  id         :bigint           not null, primary key
-#  name       :string           not null
-#  path       :string           not null
-#  github_url :string           not null
-#  clone_url  :string           not null
-#  created_at :datetime         not null
-#  updated_at :datetime         not null
+#  id           :bigint           not null, primary key
+#  name         :string           not null
+#  path         :string           not null
+#  github_url   :string           not null
+#  clone_url    :string           not null
+#  created_at   :datetime         not null
+#  updated_at   :datetime         not null
+#  organisation :string           not null
 #
 
 one:
   name: gamification
-  path: repos/gamification
+  organisation: ZeusWPI
+  path: repos/ZeusWPI_gamification
   github_url: https://github.com/ZeusWPI/gamification
   clone_url: https://github.com/ZeusWPI/gamification.git
 
 two:
   name: gamification2
-  path: repos/gamification2
+  organisation: ZeusWPI
+  path: repos/ZeusWPI_gamification2
   github_url: https://github.com/ZeusWPI/gamification2
   clone_url: https://github.com/ZeusWPI/gamification2.git

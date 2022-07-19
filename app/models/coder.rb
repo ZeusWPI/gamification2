@@ -16,7 +16,7 @@ class Coder < ApplicationRecord
   has_many :git_identities, dependent: :restrict_with_error
 
   def self.from_github(rc, repo)
-    commit = Rails.application.config.github.repos.commits.get(Rails.application.config.organisation, repo.name, rc.oid)
+    commit = Rails.application.config.github.repos.commits.get(repo.organisation, repo.name, rc.oid)
     return nil if commit.author&.login.blank?
 
     Coder.find_or_create_by(github_name: commit.author.login) do |c|

@@ -2,13 +2,14 @@
 #
 # Table name: repositories
 #
-#  id         :bigint           not null, primary key
-#  name       :string           not null
-#  path       :string           not null
-#  github_url :string           not null
-#  clone_url  :string           not null
-#  created_at :datetime         not null
-#  updated_at :datetime         not null
+#  id           :bigint           not null, primary key
+#  name         :string           not null
+#  path         :string           not null
+#  github_url   :string           not null
+#  clone_url    :string           not null
+#  created_at   :datetime         not null
+#  updated_at   :datetime         not null
+#  organisation :string           not null
 #
 class Repository < ApplicationRecord
   has_many :commits, dependent: :restrict_with_error
@@ -19,8 +20,8 @@ class Repository < ApplicationRecord
   before_create :set_path
   after_save :reprocess_delayed
 
-  def self.create_or_update_from_github_api(name, github_url, clone_url)
-    Repository.find_or_initialize_by(name:) do |r|
+  def self.create_or_update_from_github_api(organisation, name, github_url, clone_url)
+    Repository.find_or_initialize_by(organisation:, name:) do |r|
       r.github_url = github_url
       r.clone_url = clone_url
     end.save
@@ -29,7 +30,7 @@ class Repository < ApplicationRecord
   private
 
   def set_path
-    self.path = Rails.root.join("repos/#{name.parameterize}")
+    self.path = Rails.root.join("repos/#{organisation.parameterize}_#{name.parameterize}")
   end
 
   def not_filtered
