@@ -15,6 +15,7 @@ class Repository < ApplicationRecord
   has_many :commits, dependent: :restrict_with_error
   has_many :coders, -> { distinct }, through: :commits
 
+  validates :name, uniqueness: { scope: :organisation }
   validate :not_filtered
 
   before_create :set_path

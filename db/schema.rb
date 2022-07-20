@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_07_20_002035) do
+ActiveRecord::Schema[7.0].define(version: 2022_07_20_145251) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -21,6 +21,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_07_20_002035) do
     t.string "github_url", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["github_name"], name: "index_coders_on_github_name", unique: true
   end
 
   create_table "commits", force: :cascade do |t|
@@ -76,6 +77,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_07_20_002035) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "organisation", null: false
+    t.index ["organisation", "name"], name: "index_repositories_on_organisation_and_name", unique: true
   end
 
   add_foreign_key "commits", "coders"

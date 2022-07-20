@@ -7,6 +7,8 @@
 #  github_name  :string           not null
 #
 class OrganisationMember < ApplicationRecord
+  validates :github_name, uniqueness: { scope: :organisation }
+
   def self.create_all_from_organisation(organisation)
     OrganisationMember.where(organisation:).destroy_all
     # rubocop:disable Rails/FindEach
