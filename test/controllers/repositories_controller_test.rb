@@ -11,7 +11,7 @@ class RepositoriesControllerTest < ActionDispatch::IntegrationTest
   end
 
   test 'should show repository' do
-    get repository_url(@repository.name)
+    get repository_url(@repository)
     assert_response :success
   end
 end
