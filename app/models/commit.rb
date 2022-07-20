@@ -31,10 +31,10 @@ class Commit < ApplicationRecord
         diff = if rc.parents.empty? # Root commit
                  rc.diff
                else
-                 rc.diff(rc.parents.first)
+                 rc.parents.first.diff(rc)
                end
-        c.deletions = diff.stat[1]
-        c.additions = diff.stat[2]
+        c.additions = diff.stat[1]
+        c.deletions = diff.stat[2]
       end
     end.save
   end
