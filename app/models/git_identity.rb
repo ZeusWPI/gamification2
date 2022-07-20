@@ -10,7 +10,10 @@
 #  updated_at :datetime         not null
 #
 class GitIdentity < ApplicationRecord
-  belongs_to :coder
+  belongs_to :coder, validate: true
+
+  validates :name, presence: true
+  validates :email, presence: true
 
   def self.from_commit(rc, repo)
     identity = find_by(name: rc.author[:name], email: rc.author[:email])

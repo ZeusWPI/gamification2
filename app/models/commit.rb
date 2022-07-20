@@ -14,8 +14,8 @@
 #  score         :integer
 #
 class Commit < ApplicationRecord
-  belongs_to :coder
-  belongs_to :repository
+  belongs_to :coder, validate: true
+  belongs_to :repository, validate: true
 
   def self.from_rugged(rc, repository)
     committer = GitIdentity.from_commit(rc, repository)&.coder

@@ -23,7 +23,7 @@ class Coder < ApplicationRecord
     commit = Rails.application.config.github.repos.commits.get(repo.organisation, repo.name, rc.oid)
     return nil if commit.author&.login.blank?
 
-    Coder.find_or_create_by(github_name: commit.author.login) do |c|
+    Coder.unscoped.find_or_create_by(github_name: commit.author.login) do |c|
       Rails.application.config.github.users.get(user: commit.author.login).tap do |data|
         c.full_name = data.try(:name) || ''
         c.avatar_url = data.avatar_url
