@@ -2,7 +2,7 @@
     <h1 class="title is-1">Weekly overview</h1>
     <div class="panel">
         <% @coders.each.with_index do |coder, i| %>
-            <%= link_to coder_path(coder.github_name), class: "panel-block" do %>
+            <%= link_to coder_path(coder), class: "panel-block" do %>
                 <article class="media is-align-items-center is-flex-grow-1">
                     <figure class="media-left">
                         <% if i == 0 %>

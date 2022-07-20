@@ -6,7 +6,7 @@ class RepositoriesController < ApplicationController
   end
 
   def show
-    @repository = Repository.find_by!(name: params[:id])
+    @repository = Repository.find(params[:id])
 
     @sort_column = params[:order_by]
     @sort_column = 'score' unless %w[score commit_count additions deletions].include?(@sort_column)

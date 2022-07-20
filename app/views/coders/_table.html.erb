@@ -22,7 +22,7 @@
                     </p>
                 </td>
                 <td class="is-vcentered">
-                    <p class="is-size-5"><%= link_to coder.github_name, coder_path(coder.github_name) %></p>
+                    <p class="is-size-5"><%= link_to coder.github_name, coder_path(coder) %></p>
                     <% if coder.full_name.present? %>
                         <p><%= coder.full_name %></p>
                     <% end %>

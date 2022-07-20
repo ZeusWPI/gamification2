@@ -11,7 +11,7 @@ class CodersControllerTest < ActionDispatch::IntegrationTest
   end
 
   test 'should show coder' do
-    get coder_url(@coder.github_name)
+    get coder_url(@coder)
     assert_response :success
   end
 end

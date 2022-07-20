@@ -19,7 +19,7 @@
                     <%= i + 1 %>.
                 </td>
                 <td>
-                    <%= link_to "#{repository.organisation} / #{repository.name}", repository_path(repository.name) %>
+                    <%= link_to "#{repository.organisation} / #{repository.name}", repository_path(repository) %>
                 </td>
                 <td class="has-text-right"><%= repository.score %></td>
                 <td class="has-text-right"><%= repository.commit_count %></td>
