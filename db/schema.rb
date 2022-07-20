@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_07_19_225312) do
+ActiveRecord::Schema[7.0].define(version: 2022_07_20_002035) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -60,6 +60,12 @@ ActiveRecord::Schema[7.0].define(version: 2022_07_19_225312) do
     t.datetime "updated_at", null: false
     t.index ["coder_id"], name: "index_git_identities_on_coder_id"
     t.index ["name", "email"], name: "index_git_identities_on_name_and_email", unique: true
+  end
+
+  create_table "organisation_members", force: :cascade do |t|
+    t.string "organisation", null: false
+    t.string "github_name", null: false
+    t.index ["organisation", "github_name"], name: "index_organisation_members_on_organisation_and_github_name", unique: true
   end
 
   create_table "repositories", force: :cascade do |t|

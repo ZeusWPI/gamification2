@@ -42,6 +42,7 @@ class Repository < ApplicationRecord
   end
 
   def reprocess
+    OrganisationMember.create_all_from_organisation(organisation)
     pull_or_clone
     process_commits
   end

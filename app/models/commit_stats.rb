@@ -1,6 +1,6 @@
 module CommitStats
   def commit_stats_base
-    scope = from('repositories INNER JOIN commits ON repositories.id = commits.repository_id INNER JOIN coders ON coders.id = commits.coder_id').group(:id)
+    scope = from('repositories INNER JOIN commits ON repositories.id = commits.repository_id INNER JOIN coders ON coders.id = commits.coder_id').group(:id).where(coders: { github_name: OrganisationMember.all.select(:github_name) })
     scope = scope.select("#{scope.table_name}.*") unless scope.select_values.any?
     scope
   end

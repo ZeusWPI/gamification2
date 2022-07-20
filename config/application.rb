@@ -30,6 +30,7 @@ module Gamification2
       VPW-voorbereiding-2014
       VPW-voorbereiding-2015
       contests
+      cvc
       errbit
       glowing-octo-dubstep
       kaggle-rta

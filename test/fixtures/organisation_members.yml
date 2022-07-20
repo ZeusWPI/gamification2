@@ -1,0 +1,16 @@
+# == Schema Information
+#
+# Table name: organisation_members
+#
+#  id           :bigint           not null, primary key
+#  organisation :string           not null
+#  github_name  :string           not null
+#
+
+one:
+  organisation: ZeusWPI
+  github_name: chvp
+
+two:
+  organisation: ZeusWPI
+  github_name: torvalds

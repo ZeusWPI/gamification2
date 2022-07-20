@@ -15,6 +15,8 @@ class Coder < ApplicationRecord
   has_many :repositories, -> { distinct }, through: :commits
   has_many :git_identities, dependent: :restrict_with_error
 
+  default_scope -> { where(github_name: OrganisationMember.all.select(:github_name)) }
+
   def self.from_github(rc, repo)
     commit = Rails.application.config.github.repos.commits.get(repo.organisation, repo.name, rc.oid)
     return nil if commit.author&.login.blank?
