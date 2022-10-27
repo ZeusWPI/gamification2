@@ -21,12 +21,12 @@
                 <td>
                     <%= link_to "#{repository.organisation} / #{repository.name}", repository_path(repository) %>
                 </td>
-                <td class="has-text-right"><%= repository.score %></td>
-                <td class="has-text-right"><%= repository.commit_count %></td>
-                <td class="has-text-right"><%= repository.additions %></td>
-                <td class="has-text-right"><%= repository.deletions %></td>
+                <td class="has-text-right"><%= number_with_delimiter repository.score, delimiter: '&nbsp;'.html_safe %></td>
+                <td class="has-text-right"><%= number_with_delimiter repository.commit_count, delimiter: '&nbsp;'.html_safe %></td>
+                <td class="has-text-right"><%= number_with_delimiter repository.additions, delimiter: '&nbsp;'.html_safe %></td>
+                <td class="has-text-right"><%= number_with_delimiter repository.deletions, delimiter: '&nbsp;'.html_safe %></td>
                 <% unless local_assigns.fetch(:skip_coder_count, false) %>
-                    <td class="has-text-right"><%= repository.coder_count %></td>
+                    <td class="has-text-right"><%= number_with_delimiter repository.coder_count, delimiter: '&nbsp;'.html_safe %></td>
                 <% end %>
             </tr>
         <% end %>

@@ -27,12 +27,12 @@
                         <p><%= coder.full_name %></p>
                     <% end %>
                 </td>
-                <td class="is-vcentered has-text-right"><%= coder.score %></td>
-                <td class="is-vcentered has-text-right"><%= coder.commit_count %></td>
-                <td class="is-vcentered has-text-right"><%= coder.additions %></td>
-                <td class="is-vcentered has-text-right"><%= coder.deletions %></td>
+                <td class="is-vcentered has-text-right"><%= number_with_delimiter coder.score, delimiter: '&nbsp;'.html_safe %></td>
+                <td class="is-vcentered has-text-right"><%= number_with_delimiter coder.commit_count, delimiter: '&nbsp;'.html_safe %></td>
+                <td class="is-vcentered has-text-right"><%= number_with_delimiter coder.additions, delimiter: '&nbsp;'.html_safe %></td>
+                <td class="is-vcentered has-text-right"><%= number_with_delimiter coder.deletions, delimiter: '&nbsp;'.html_safe %></td>
                 <% unless local_assigns.fetch(:skip_repository_count, false) %>
-                    <td class="is-vcentered has-text-right"><%= coder.repository_count %></td>
+                    <td class="is-vcentered has-text-right"><%= number_with_delimiter coder.repository_count, delimiter: '&nbsp;'.html_safe %></td>
                 <% end %>
             </tr>
         <% end %>
