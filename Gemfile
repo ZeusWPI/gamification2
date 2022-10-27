@@ -27,6 +27,10 @@ gem 'rugged'
 # Use GitHub API to fetch repositories
 gem 'github_api'
 
+# Use sentry to report errors
+gem 'sentry-rails'
+gem 'sentry-ruby'
+
 # Use delayed job for executing jobs in the background
 gem 'delayed_job_active_record'
 
