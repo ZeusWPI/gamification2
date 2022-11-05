@@ -7,11 +7,13 @@ class CodersControllerTest < ActionDispatch::IntegrationTest
 
   test 'should get index' do
     get coders_url
+
     assert_response :success
   end
 
   test 'should show coder' do
     get coder_url(@coder)
+
     assert_response :success
   end
 end
