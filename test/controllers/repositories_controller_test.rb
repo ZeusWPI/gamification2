@@ -7,11 +7,13 @@ class RepositoriesControllerTest < ActionDispatch::IntegrationTest
 
   test 'should get index' do
     get repositories_url
+
     assert_response :success
   end
 
   test 'should show repository' do
     get repository_url(@repository)
+
     assert_response :success
   end
 end
