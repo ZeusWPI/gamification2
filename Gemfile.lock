@@ -237,8 +237,8 @@ GEM
       unicode-display_width (>= 2.4.0, < 3.0)
     rubocop-ast (1.26.0)
       parser (>= 3.2.1.0)
-    rubocop-minitest (0.27.0)
-      rubocop (>= 0.90, < 2.0)
+    rubocop-minitest (0.28.0)
+      rubocop (>= 1.39, < 2.0)
     rubocop-rails (2.18.0)
       activesupport (>= 4.2.0)
       rack (>= 1.1)
@@ -305,7 +305,7 @@ DEPENDENCIES
   puma (~> 6.1)
   rack-cors
   rails (~> 7.0.4)
-  rubocop-minitest (~> 0.27.0)
+  rubocop-minitest (~> 0.28.0)
   rubocop-rails (~> 2.18)
   rugged
   selenium-webdriver
