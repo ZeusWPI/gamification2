@@ -246,7 +246,7 @@ GEM
     ruby-progressbar (1.13.0)
     ruby2_keywords (0.0.5)
     rubyzip (2.3.2)
-    rugged (1.6.2)
+    rugged (1.6.3)
     selenium-webdriver (4.8.2)
       rexml (~> 3.2, >= 3.2.5)
       rubyzip (>= 1.2.2, < 3.0)
