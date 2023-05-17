@@ -1,8 +1,11 @@
+# Drop this in ~/.config/systemd/user/ and run `systemctl --user enable podman-compose && systemctl --user start podman-compose`
+
 [Install]
 WantedBy=default.target
 
 [Service]
-ExecStart=/usr/local/bin/podman-compose -f gamification2/docker-compose.yml up
+# Source code is in $HOME/gamification2
+ExecStart=/usr/local/bin/podman-compose -f $HOME/gamification2/docker-compose.yml up
 Restart=on-failure
 
 [Unit]
