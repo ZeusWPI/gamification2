@@ -17,7 +17,7 @@ class Coder < ApplicationRecord
 
   validates :github_name, uniqueness: true
 
-  default_scope -> { where(github_name: OrganisationMember.all.select(:github_name)) }
+  default_scope -> { where(github_name: OrganisationMember.select(:github_name)) }
 
   def self.from_github(rc, repo)
     commit = Rails.application.config.github.repos.commits.get(repo.organisation, repo.name, rc.oid)

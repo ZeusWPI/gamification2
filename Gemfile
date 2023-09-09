@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby '3.1.2'
+ruby '~> 3.1.2'
 
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
 gem 'rails', '~> 7.0.7'
@@ -60,7 +60,7 @@ end
 group :development do
   gem 'annotate', '~> 3.2'
   gem 'rubocop-minitest', '~> 0.31.1'
-  gem 'rubocop-rails', '~> 2.20'
+  gem 'rubocop-rails', '~> 2.21'
   gem 'web-console'
 end
 
