@@ -4,7 +4,7 @@
   "dependencies": {
     "@mdi/font": "^7.2.96",
     "bulma": "^0.9.4",
-    "sass": "^1.66.1"
+    "sass": "^1.67.0"
   },
   "scripts": {
     "build:css": "sass ./app/assets/stylesheets/application.bulma.scss ./app/assets/builds/application.css --no-source-map --load-path=node_modules"
