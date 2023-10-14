@@ -2,7 +2,7 @@
   "name": "app",
   "private": "true",
   "dependencies": {
-    "@mdi/font": "^7.2.96",
+    "@mdi/font": "^7.3.67",
     "bulma": "^0.9.4",
     "sass": "^1.69.3"
   },
