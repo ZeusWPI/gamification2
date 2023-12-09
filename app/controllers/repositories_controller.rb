@@ -10,7 +10,8 @@ class RepositoriesController < ApplicationController
 
     @sort_column = params[:order_by]
     @sort_column = 'score' unless %w[score commit_count additions deletions].include?(@sort_column)
-    @coders = Coder.extending(CommitStats)
+    @coders = Coder.in_organisation
+                   .extending(CommitStats)
                    .with_commit_stats
                    .where(commits: { repository_id: @repository.id })
                    .order({ @sort_column => :desc })
