@@ -1,6 +1,7 @@
 class PagesController < ApplicationController
   def top4
-    @coders = Coder.extending(CommitStats).with_commit_stats
+    @coders = Coder.in_organisation
+                   .extending(CommitStats).with_commit_stats
                    .where(commits: { committed_at: 1.week.ago.. })
                    .order(score: :desc)
                    .limit(4)
@@ -11,7 +12,8 @@ class PagesController < ApplicationController
                        .take(4).map do |repo|
       [
         repo,
-        Coder.extending(CommitStats).with_commit_stats
+        Coder.in_organisation
+             .extending(CommitStats).with_commit_stats
              .where(repositories: { id: repo.id }, commits: { committed_at: 1.week.ago.. })
              .order(score: :desc)
       ]
