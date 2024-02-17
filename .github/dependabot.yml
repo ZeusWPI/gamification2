@@ -5,17 +5,24 @@ updates:
   schedule:
     interval: weekly
     day: saturday
-    time: "11:00"
+    time: "08:00"
     timezone: Europe/Brussels
   open-pull-requests-limit: 10
   reviewers:
   - chvp
+  groups:
+    sentry:
+      patterns:
+        - "sentry-*"
+    rubocop:
+      patterns:
+        - "rubocop*"
 - package-ecosystem: npm
   directory: "/"
   schedule:
     interval: weekly
     day: saturday
-    time: "11:00"
+    time: "08:00"
     timezone: Europe/Brussels
   open-pull-requests-limit: 10
   reviewers:
@@ -25,7 +32,7 @@ updates:
   schedule:
     interval: weekly
     day: saturday
-    time: "11:00"
+    time: "08:00"
     timezone: Europe/Brussels
   open-pull-requests-limit: 10
   reviewers:
