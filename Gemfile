@@ -60,7 +60,7 @@ end
 group :development do
   gem 'annotate', '~> 3.2'
   gem 'rubocop-minitest', '~> 0.34.5'
-  gem 'rubocop-rails', '~> 2.23'
+  gem 'rubocop-rails', '~> 2.24'
   gem 'web-console'
 end
 
