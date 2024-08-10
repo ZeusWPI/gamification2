@@ -58,9 +58,10 @@ group :development, :test do
 end
 
 group :development do
-  gem 'annotate', '~> 3.2'
-  gem 'rubocop-minitest', '~> 0.35.1'
-  gem 'rubocop-rails', '~> 2.25'
+  gem 'annotate', '~> 3.2', require: false
+  gem 'brakeman', require: false
+  gem 'rubocop-minitest', '~> 0.35.1', require: false
+  gem 'rubocop-rails', '~> 2.25', require: false
   gem 'web-console'
 end
 

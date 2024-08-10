@@ -1,0 +1,74 @@
+{
+  "ignored_warnings": [
+    {
+      "warning_type": "Cross-Site Scripting",
+      "warning_code": 4,
+      "fingerprint": "102da98da3b38d5f1a50de0fcbf26279c5319c676c67fca0e464a40c98b0ae9c",
+      "check_name": "LinkToHref",
+      "message": "Potentially unsafe model attribute in `link_to` href",
+      "file": "app/views/coders/show.html.erb",
+      "line": 13,
+      "link": "https://brakemanscanner.org/docs/warning_types/link_to_href",
+      "code": "link_to(image_tag(\"github.png\"), Coder.in_organisation.extending(CommitStats).with_commit_stats.with_repository_count.find(params[:id]).github_url, :title => \"View profile on Github\")",
+      "render_path": [
+        {
+          "type": "controller",
+          "class": "CodersController",
+          "method": "show",
+          "line": 18,
+          "file": "app/controllers/coders_controller.rb",
+          "rendered": {
+            "name": "coders/show",
+            "file": "app/views/coders/show.html.erb"
+          }
+        }
+      ],
+      "location": {
+        "type": "template",
+        "template": "coders/show"
+      },
+      "user_input": "Coder.in_organisation.extending(CommitStats).with_commit_stats.with_repository_count.find(params[:id]).github_url",
+      "confidence": "Weak",
+      "cwe_id": [
+        79
+      ],
+      "note": "This URL comes from GitHub, not from user input"
+    },
+    {
+      "warning_type": "Cross-Site Scripting",
+      "warning_code": 4,
+      "fingerprint": "68764d8c652eaa58cf9d314b8f0f4cbc2a7d14b82dc6c1c854fc81bca648bbad",
+      "check_name": "LinkToHref",
+      "message": "Potentially unsafe model attribute in `link_to` href",
+      "file": "app/views/repositories/show.html.erb",
+      "line": 4,
+      "link": "https://brakemanscanner.org/docs/warning_types/link_to_href",
+      "code": "link_to(image_tag(\"github.png\"), Repository.find(params[:id]).github_url, :title => \"View repository on Github\")",
+      "render_path": [
+        {
+          "type": "controller",
+          "class": "RepositoriesController",
+          "method": "show",
+          "line": 14,
+          "file": "app/controllers/repositories_controller.rb",
+          "rendered": {
+            "name": "repositories/show",
+            "file": "app/views/repositories/show.html.erb"
+          }
+        }
+      ],
+      "location": {
+        "type": "template",
+        "template": "repositories/show"
+      },
+      "user_input": "Repository.find(params[:id]).github_url",
+      "confidence": "Weak",
+      "cwe_id": [
+        79
+      ],
+      "note": "This URL comes from GitHub, not from user input"
+    }
+  ],
+  "updated": "2024-08-10 13:16:38 +0200",
+  "brakeman_version": "6.1.2"
+}
