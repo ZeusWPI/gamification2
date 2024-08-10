@@ -49,4 +49,7 @@ jobs:
         bundler-cache: true
     - name: Lint with rubocop
       run: |
-        bundle exec rubocop -c .rubocop.yml
+        bundle exec rubocop -c .rubocop.yml -f github
+    - name: Check with brakeman
+      run: |
+        bundle exec brakeman --skip-files repos/ --no-pager
