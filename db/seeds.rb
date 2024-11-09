@@ -11,6 +11,7 @@ Rails.application.config.organisations.each do |org|
   repos = github.repos.list :all, org: org
   repos.each do |hash|
     next if hash['private']
+
     saved = Repository.create_or_update_from_github_api(hash['owner']['login'], hash['name'], hash['html_url'], hash['clone_url'])
     puts "Creating or updating #{hash['owner']['login']}/#{hash['name']}" if saved
   end

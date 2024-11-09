@@ -31,8 +31,8 @@ gem 'github_api'
 gem 'sentry-rails'
 gem 'sentry-ruby'
 
-# Use delayed job for executing jobs in the background
-gem 'delayed_job_active_record'
+# Use solid queue for executing jobs in the background
+gem 'solid_queue'
 
 # Set CORS headers
 gem 'rack-cors'

@@ -23,41 +23,13 @@ class Repository < ApplicationRecord
   validate :not_filtered
 
   before_create :set_path
-  after_save :reprocess_delayed
+  after_save :reprocess_in_background
 
   def self.create_or_update_from_github_api(organisation, name, github_url, clone_url)
     Repository.find_or_initialize_by(organisation:, name:) do |r|
       r.github_url = github_url
       r.clone_url = clone_url
     end.save
-  end
-
-  private
-
-  def set_path
-    self.path = Rails.root.join("repos/#{organisation.parameterize}_#{name.parameterize}")
-  end
-
-  def not_filtered
-    errors.add(:name, 'filtered') if Rails.application.config.repo_name_deny_list.include?(name)
-  end
-
-  def reprocess_delayed
-    delay.reprocess
-  end
-
-  def reprocess
-    OrganisationMember.create_all_from_organisation(organisation)
-    pull_or_clone
-    process_commits
-  end
-
-  def process_commits
-    rugged_repo.tap do |r|
-      walker = Rugged::Walker.new(r)
-      r.branches.each { |b| walker.push b.target_id }
-      walker.each { |c| Commit.from_rugged(c, self) }
-    end
   end
 
   def pull_or_clone
@@ -70,6 +42,28 @@ class Repository < ApplicationRecord
     else
       Rugged::Repository.clone_at(clone_url, path)
     end
+  end
+
+  def process_commits
+    rugged_repo.tap do |r|
+      walker = Rugged::Walker.new(r)
+      r.branches.each { |b| walker.push b.target_id }
+      walker.each { |c| Commit.from_rugged(c, self) }
+    end
+  end
+
+  private
+
+  def set_path
+    self.path = Rails.root.join("repos/#{organisation.parameterize}_#{name.parameterize}")
+  end
+
+  def not_filtered
+    errors.add(:name, 'filtered') if Rails.application.config.repo_name_deny_list.include?(name)
+  end
+
+  def reprocess_in_background
+    RepositoryReprocessJob.perform_later(self)
   end
 
   def rugged_repo

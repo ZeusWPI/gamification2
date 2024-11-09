@@ -11,4 +11,4 @@ WORKDIR /app
 
 COPY . .
 RUN bundle
-CMD bundle exec rails jobs:work
+CMD bin/jobs
