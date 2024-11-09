@@ -20,8 +20,7 @@ Bundler.require(*Rails.groups)
 
 module Gamification2
   class Application < Rails::Application
-    config.load_defaults 7.2
-    config.active_support.cache_format_version = 7.1
+    config.load_defaults 8.0
     config.autoload_lib(ignore: %w[assets tasks])
     config.active_job.queue_adapter = :solid_queue
     config.organisations = %w[ZeusWPI 12urenloop]
