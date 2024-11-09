@@ -14,4 +14,4 @@ RUN bundle
 
 RUN bundle exec rails assets:precompile
 
-CMD bundle exec rails db:prepare && bundle exec unicorn -c config/unicorn.rb
+CMD bundle exec rails db:prepare && bundle exec rails server

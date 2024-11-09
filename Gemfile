@@ -12,9 +12,6 @@ gem 'propshaft'
 # Use postgresql as the database for Active Record
 gem 'pg', '~> 1.5'
 
-# Use unicorn in production
-gem 'unicorn', '~> 6.1'
-
 # Bundle and process CSS [https://github.com/rails/cssbundling-rails]
 gem 'cssbundling-rails'
 
