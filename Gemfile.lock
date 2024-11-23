@@ -204,7 +204,7 @@ GEM
     psych (5.2.0)
       stringio
     public_suffix (5.0.4)
-    puma (6.4.3)
+    puma (6.5.0)
       nio4r (~> 2.0)
     raabro (1.4.0)
     racc (1.8.1)
@@ -336,7 +336,7 @@ DEPENDENCIES
   jbuilder
   pg (~> 1.5)
   propshaft
-  puma (~> 6.4)
+  puma (~> 6.5)
   rack-cors
   rails (~> 8.0.0)
   rubocop-minitest (~> 0.36.0)
