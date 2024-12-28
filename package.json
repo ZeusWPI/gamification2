@@ -3,7 +3,7 @@
   "private": "true",
   "dependencies": {
     "@mdi/font": "^7.4.47",
-    "bulma": "^1.0.2",
+    "bulma": "^1.0.3",
     "sass": "^1.83.0"
   },
   "scripts": {
