@@ -74,7 +74,7 @@ GEM
       uri (>= 0.13.1)
     addressable (2.8.6)
       public_suffix (>= 2.0.2, < 6.0)
-    annotaterb (4.13.0)
+    annotaterb (4.14.0)
     ast (2.4.2)
     base64 (0.2.0)
     benchmark (0.4.0)
@@ -334,7 +334,7 @@ PLATFORMS
   x86_64-linux
 
 DEPENDENCIES
-  annotaterb (~> 4.13)
+  annotaterb (~> 4.14)
   bootsnap
   brakeman
   capybara
