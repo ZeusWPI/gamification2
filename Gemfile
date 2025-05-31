@@ -55,7 +55,7 @@ group :development, :test do
 end
 
 group :development do
-  gem 'annotaterb', '~> 4.14', require: false
+  gem 'annotaterb', '~> 4.15', require: false
   gem 'brakeman', require: false
   gem 'rubocop-minitest', '~> 0.38.0', require: false
   gem 'rubocop-rails', '~> 2.32', require: false
