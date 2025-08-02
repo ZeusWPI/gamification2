@@ -10,7 +10,7 @@ gem 'rails', '~> 8.0.2'
 gem 'propshaft'
 
 # Use postgresql as the database for Active Record
-gem 'pg', '~> 1.5'
+gem 'pg', '~> 1.6'
 
 # Bundle and process CSS [https://github.com/rails/cssbundling-rails]
 gem 'cssbundling-rails'
