@@ -1,7 +1,7 @@
 <section class="section">
-    <h1 class="title is-size-1">
+    <h1 class="is-flex is-align-items-baseline title is-size-1">
         <%= @repository.organisation %> / <%= @repository.name %>
-        <%= link_to image_tag('github.png'), @repository.github_url, title: 'View repository on Github' %>
+        <%= link_to image_tag('github.svg',class: "image invert is-32x32 ml-2"), @repository.github_url, title: 'View repository on Github' %>
     </h1>
 
     <%= render 'coders/table', { coders: @coders, skip_repository_count: true } %>

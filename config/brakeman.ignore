@@ -9,7 +9,7 @@
       "file": "app/views/coders/show.html.erb",
       "line": 13,
       "link": "https://brakemanscanner.org/docs/warning_types/link_to_href",
-      "code": "link_to(image_tag(\"github.png\"), Coder.in_organisation.extending(CommitStats).with_commit_stats.with_repository_count.find(params[:id]).github_url, :title => \"View profile on Github\")",
+      "code": "link_to(image_tag(\"github.svg\"), Coder.in_organisation.extending(CommitStats).with_commit_stats.with_repository_count.find(params[:id]).github_url, :title => \"View profile on Github\")",
       "render_path": [
         {
           "type": "controller",
@@ -43,7 +43,7 @@
       "file": "app/views/repositories/show.html.erb",
       "line": 4,
       "link": "https://brakemanscanner.org/docs/warning_types/link_to_href",
-      "code": "link_to(image_tag(\"github.png\"), Repository.find(params[:id]).github_url, :title => \"View repository on Github\")",
+      "code": "link_to(image_tag(\"github.svg\"), Repository.find(params[:id]).github_url, :title => \"View repository on Github\")",
       "render_path": [
         {
           "type": "controller",
