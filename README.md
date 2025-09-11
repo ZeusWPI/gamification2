@@ -1,24 +1,23 @@
-# README
+# Gamification 2
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+minimal development setup steps:
 
-Things you may want to cover:
+```
+nix develop github:chvp/nixos-config#gamification2
+yarn run build:css
+server:start
+```
 
-* Ruby version
+open the website
+click "Create database"
+click "Run pending migrations"
 
-* System dependencies
+yay
 
-* Configuration
+to get some data, while the server is open:
+```
+rake db:seed
+bin/jobs start
+```
 
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+the jobs will run silently for a long time, but if you let it run for a bit and then stop it, you will have some data
