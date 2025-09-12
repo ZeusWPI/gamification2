@@ -32,7 +32,7 @@
       "cwe_id": [
         79
       ],
-      "note": ""
+      "note": "This URL comes from GitHub, not from user input"
     },
     {
       "warning_type": "Cross-Site Scripting",
@@ -66,7 +66,7 @@
       "cwe_id": [
         79
       ],
-      "note": ""
+      "note": "This URL comes from GitHub, not from user input"
     }
   ],
   "brakeman_version": "7.1.0"
