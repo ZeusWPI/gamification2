@@ -4,19 +4,22 @@ minimal development setup steps:
 
 ```
 nix develop github:chvp/nixos-config#gamification2
+refresh-deps
 yarn run build:css
 server:start
 ```
 
-open the website
-click "Create database"
-click "Run pending migrations"
+while the server (or the database) is running, to setup the database:
+
+```
+rails db:setup
+```
 
 yay
 
-to get some data, while the server is open:
+to get some data:
+
 ```
-rake db:seed
 bin/jobs start
 ```
 
