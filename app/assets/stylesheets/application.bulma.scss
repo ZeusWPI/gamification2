@@ -8,3 +8,9 @@ $mdi-font-path: "fonts";
     --bulma-primary-s: 100%;
     --bulma-primary-l: 50%;
 }
+
+@media (prefers-color-scheme: dark) {
+    .image.invert {
+        filter: invert(1);
+    }
+}
