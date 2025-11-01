@@ -8,7 +8,7 @@ class PagesController < ApplicationController
 
     respond_to do |format|
       format.json do
-        render json: @coders.map { %i[github_name score avatar_url github_url].index_with(it) }
+        render json: @coders.map { |c| %i[github_name score avatar_url github_url].index_with { c.public_send(it) } }
       end
       format.html
     end
