@@ -6,17 +6,11 @@ class PagesController < ApplicationController
                    .order(score: :desc)
                    .limit(4)
 
-    @repos = Repository.extending(CommitStats).with_commit_stats
-                       .where(commits: { committed_at: 1.week.ago.. })
-                       .order(score: :desc)
-                       .take(4).map do |repo|
-      [
-        repo,
-        Coder.in_organisation
-             .extending(CommitStats).with_commit_stats
-             .where(repositories: { id: repo.id }, commits: { committed_at: 1.week.ago.. })
-             .order(score: :desc)
-      ]
+    respond_to do |format|
+      format.json do
+        render json: @coders.pluck(:github_name, :score, :avatar_url, :github_url)
+      end
+      format.html
     end
   end
 end

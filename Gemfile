@@ -12,9 +12,6 @@ gem 'propshaft'
 # Use postgresql as the database for Active Record
 gem 'pg', '~> 1.6'
 
-# Build JSON APIs with ease [https://github.com/rails/jbuilder]
-gem 'jbuilder'
-
 # Walk commits in repositories
 gem 'rugged'
 
