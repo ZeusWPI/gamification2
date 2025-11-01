@@ -36,7 +36,6 @@ jobs:
     - name: Run tests
       run: |
         yarn install
-        yarn run build:css
         bundle exec rails db:create
         bundle exec rails test
   lint:
