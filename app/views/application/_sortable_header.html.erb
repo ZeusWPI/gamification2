@@ -1,10 +1,12 @@
 <th class="has-text-right">
-    <%= link_to url_for(order_by: value) do %>
+    <%= link_to url_for(order_by: value), class: "icon-text is-align-items-center has-text-link" do %>
         <% if @sort_column == value %>
             <span class="icon">
-                <i class="mdi mdi-18 mdi-sort-numeric-descending"></i>
+                <%= image_tag('bars-arrow-down.svg', class: "image is-16x16") %>
             </span>
         <% end %>
-        <%= name %>
+        <span>
+            <%= name %>
+        </span>
     <% end %>
 </th>
