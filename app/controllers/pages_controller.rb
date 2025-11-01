@@ -8,7 +8,7 @@ class PagesController < ApplicationController
 
     respond_to do |format|
       format.json do
-        render json: @coders.pluck(:github_name, :score, :avatar_url, :github_url)
+        render json: @coders.to_a.pluck(:github_name, :score, :avatar_url, :github_url)
       end
       format.html
     end
