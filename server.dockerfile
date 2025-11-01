@@ -9,10 +9,12 @@ RUN apt-get update && apt-get install -y --no-install-recommends nodejs yarn cma
 RUN gem install bundler
 WORKDIR /app
 
-COPY . .
-RUN bundle
+COPY Gemfile Gemfile.lock package.json yarn.lock .
 
+RUN bundle
 RUN yarn install
+
+COPY . .
 
 RUN bundle exec rails assets:precompile
 
