@@ -12,6 +12,8 @@ WORKDIR /app
 COPY . .
 RUN bundle
 
+RUN yarn install
+
 RUN bundle exec rails assets:precompile
 
 CMD bundle exec rails db:prepare && bundle exec rails server
