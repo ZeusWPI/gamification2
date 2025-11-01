@@ -13,7 +13,7 @@ AllCops:
     - "node_modules/**/*"
     - "repos/**/*"
     - "config/unicorn.rb"
-  TargetRubyVersion: 3.3
+  TargetRubyVersion: 3.4
   NewCops: enable
 
 Layout/FirstArrayElementIndentation:
