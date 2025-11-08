@@ -19,8 +19,8 @@ gem 'rugged', '~> 1.9.0'
 gem 'github_api', '~> 0.19.0'
 
 # Use sentry to report errors
-gem 'sentry-rails', '~> 6.0.0'
-gem 'sentry-ruby', '~> 6.0.0'
+gem 'sentry-rails', '~> 6.1.0'
+gem 'sentry-ruby', '~> 6.1.0'
 
 # Use solid queue for executing jobs in the background
 gem 'solid_queue', '~> 1.2.4'
