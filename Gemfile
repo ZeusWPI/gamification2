@@ -10,7 +10,7 @@ gem 'rails', '~> 8.1.1'
 gem 'propshaft', '~> 1.3.1'
 
 # Use postgresql as the database for Active Record
-gem 'pg', '~> 1.6.2'
+gem 'pg', '~> 1.6.3'
 
 # Walk commits in repositories
 gem 'rugged', '~> 1.9.0'
