@@ -48,7 +48,7 @@ group :development do
   gem 'rubocop', '~> 1.84.2', require: false
   gem 'rubocop-minitest', '~> 0.38.2', require: false
   gem 'rubocop-rails', '~> 2.34', require: false
-  gem 'web-console', '~> 4.2.1'
+  gem 'web-console', '~> 4.3.0'
 end
 
 group :test do
