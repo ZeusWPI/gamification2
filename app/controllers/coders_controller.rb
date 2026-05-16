@@ -10,7 +10,7 @@ class CodersController < ApplicationController
                   .extending(CommitStats)
                   .with_commit_stats
                   .with_repository_count
-                  .find(params[:id])
+                  .find(params.expect(:id))
 
     @sort_column = params[:order_by]
     @sort_column = 'score' unless %w[score commit_count additions deletions].include?(@sort_column)

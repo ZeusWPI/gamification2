@@ -3,47 +3,13 @@
     {
       "warning_type": "Cross-Site Scripting",
       "warning_code": 4,
-      "fingerprint": "881846274e4d7b75335f573d5eab757d51c5c90eef294832cc09cfd5cef66a76",
-      "check_name": "LinkToHref",
-      "message": "Potentially unsafe model attribute in `link_to` href",
-      "file": "app/views/repositories/show.html.erb",
-      "line": 4,
-      "link": "https://brakemanscanner.org/docs/warning_types/link_to_href",
-      "code": "link_to(image_tag(\"github.svg\", :class => \"image invert is-32x32 ml-2\"), Repository.find(params[:id]).github_url, :title => \"View repository on Github\")",
-      "render_path": [
-        {
-          "type": "controller",
-          "class": "RepositoriesController",
-          "method": "show",
-          "line": 14,
-          "file": "app/controllers/repositories_controller.rb",
-          "rendered": {
-            "name": "repositories/show",
-            "file": "app/views/repositories/show.html.erb"
-          }
-        }
-      ],
-      "location": {
-        "type": "template",
-        "template": "repositories/show"
-      },
-      "user_input": "Repository.find(params[:id]).github_url",
-      "confidence": "Weak",
-      "cwe_id": [
-        79
-      ],
-      "note": "This URL comes from GitHub, not from user input"
-    },
-    {
-      "warning_type": "Cross-Site Scripting",
-      "warning_code": 4,
-      "fingerprint": "dd714f14376692d3d409b49cad136fbe1d8205036f4a9f917679d296899249b4",
+      "fingerprint": "065b89873086865cc6f76d578cb34902cb52cfb6d5b6a1c2d8332e3b2127d76e",
       "check_name": "LinkToHref",
       "message": "Potentially unsafe model attribute in `link_to` href",
       "file": "app/views/coders/show.html.erb",
       "line": 13,
       "link": "https://brakemanscanner.org/docs/warning_types/link_to_href",
-      "code": "link_to(image_tag(\"github.svg\", :class => \"image invert is-32x32 ml-2\"), Coder.in_organisation.extending(CommitStats).with_commit_stats.with_repository_count.find(params[:id]).github_url, :title => \"View profile on Github\")",
+      "code": "link_to(image_tag(\"github.svg\", :class => \"image invert is-32x32 ml-2\"), Coder.in_organisation.extending(CommitStats).with_commit_stats.with_repository_count.find(params.expect(:id)).github_url, :title => \"View profile on Github\")",
       "render_path": [
         {
           "type": "controller",
@@ -61,7 +27,41 @@
         "type": "template",
         "template": "coders/show"
       },
-      "user_input": "Coder.in_organisation.extending(CommitStats).with_commit_stats.with_repository_count.find(params[:id]).github_url",
+      "user_input": "Coder.in_organisation.extending(CommitStats).with_commit_stats.with_repository_count.find(params.expect(:id)).github_url",
+      "confidence": "Weak",
+      "cwe_id": [
+        79
+      ],
+      "note": "This URL comes from GitHub, not from user input"
+    },
+    {
+      "warning_type": "Cross-Site Scripting",
+      "warning_code": 4,
+      "fingerprint": "b592b4615e92cc62c9f3f90f52ebeba50d875b87f5b683d32603d593a9ed1134",
+      "check_name": "LinkToHref",
+      "message": "Potentially unsafe model attribute in `link_to` href",
+      "file": "app/views/repositories/show.html.erb",
+      "line": 4,
+      "link": "https://brakemanscanner.org/docs/warning_types/link_to_href",
+      "code": "link_to(image_tag(\"github.svg\", :class => \"image invert is-32x32 ml-2\"), Repository.find(params.expect(:id)).github_url, :title => \"View repository on Github\")",
+      "render_path": [
+        {
+          "type": "controller",
+          "class": "RepositoriesController",
+          "method": "show",
+          "line": 14,
+          "file": "app/controllers/repositories_controller.rb",
+          "rendered": {
+            "name": "repositories/show",
+            "file": "app/views/repositories/show.html.erb"
+          }
+        }
+      ],
+      "location": {
+        "type": "template",
+        "template": "repositories/show"
+      },
+      "user_input": "Repository.find(params.expect(:id)).github_url",
       "confidence": "Weak",
       "cwe_id": [
         79
@@ -69,5 +69,5 @@
       "note": "This URL comes from GitHub, not from user input"
     }
   ],
-  "brakeman_version": "7.1.0"
+  "brakeman_version": "8.0.4"
 }
