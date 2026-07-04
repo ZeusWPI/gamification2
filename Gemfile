@@ -13,7 +13,7 @@ gem 'propshaft', '~> 1.3.2'
 gem 'pg', '~> 1.6.3'
 
 # Walk commits in repositories
-gem 'rugged', '~> 1.9.0'
+gem 'rugged', '~> 1.9.4'
 
 # Use GitHub API to fetch repositories
 gem 'github_api', '~> 0.19.0'
