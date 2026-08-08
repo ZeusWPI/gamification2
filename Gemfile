@@ -23,7 +23,7 @@ gem 'sentry-rails', '~> 6.6.2'
 gem 'sentry-ruby', '~> 6.6.0'
 
 # Use solid queue for executing jobs in the background
-gem 'solid_queue', '~> 1.5.0'
+gem 'solid_queue', '~> 1.6.0'
 
 # Set CORS headers
 gem 'rack-cors', '~> 3.0.0'
