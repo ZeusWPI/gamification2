@@ -47,7 +47,7 @@ group :development do
   gem 'brakeman', '~> 8.0.5', require: false
   gem 'rubocop', '~> 1.89.0', require: false
   gem 'rubocop-minitest', '~> 0.40.0', require: false
-  gem 'rubocop-rails', '~> 2.36', require: false
+  gem 'rubocop-rails', '~> 2.37', require: false
   gem 'web-console', '~> 4.3.0'
 end
 
