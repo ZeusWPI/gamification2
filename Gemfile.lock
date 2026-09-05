@@ -324,10 +324,10 @@ GEM
       rexml (~> 3.2, >= 3.2.5)
       rubyzip (>= 1.2.2, < 4.0)
       websocket (~> 1.0)
-    sentry-rails (6.7.0)
+    sentry-rails (7.0.0)
       railties (>= 5.2.0)
-      sentry-ruby (~> 6.7.0)
-    sentry-ruby (6.7.0)
+      sentry-ruby (~> 7.0.0)
+    sentry-ruby (7.0.0)
       bigdecimal
       concurrent-ruby (~> 1.0, >= 1.0.2)
       logger
@@ -390,8 +390,8 @@ DEPENDENCIES
   rubocop-rails (~> 2.37)
   rugged (~> 1.9.6)
   selenium-webdriver (~> 4.47.0)
-  sentry-rails (~> 6.7.0)
-  sentry-ruby (~> 6.7.0)
+  sentry-rails (~> 7.0.0)
+  sentry-ruby (~> 7.0.0)
   solid_queue (~> 1.7.0)
   tzinfo-data
   web-console (~> 4.3.0)
