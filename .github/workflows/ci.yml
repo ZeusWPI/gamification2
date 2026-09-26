@@ -52,3 +52,35 @@ jobs:
     - name: Check with brakeman
       run: |
         bundle exec brakeman --skip-files repos/ --no-pager
+  annotate-diff-check:
+    runs-on: ubuntu-latest
+    env:
+      DATABASE_HOST: "127.0.0.1"
+    services:
+      postgresql:
+        image: postgres
+        env:
+          POSTGRES_USER: "gamification2"
+          POSTGRES_PASSWORD: "gamification2"
+        ports:
+        - 5432:5432
+        options: --health-cmd pg_isready --health-interval 10s --health-timeout 5s --health-retries 5
+    steps:
+    - uses: actions/checkout@v7
+    - uses: actions/checkout@v7
+    - name: Setup ruby from /.ruby_version
+      uses: ruby/setup-ruby@v1
+      with:
+        bundler-cache: true
+    - name: "Setup database"
+      run: |
+        bundle exec rails db:setup
+    - name: Run annotate
+      run: bundle exec annotaterb models
+    - name: Check diff
+      run: |
+        if ! git diff-index --quiet HEAD; then
+          printf "Annotate changed the following files:\n"
+          git diff --name-only | sed "s/^/* /"
+          exit 1
+        fi
