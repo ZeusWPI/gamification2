@@ -4,7 +4,7 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 ruby '~> 4.0.0'
 
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
-gem 'rails', '~> 8.1.3'
+gem 'rails', '~> 8.1.4'
 # Rails isn't compatible with JSON 3, but doesn't declare it. Remove on next rails release.
 gem 'json', '~> 2.21.2'
 
