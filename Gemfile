@@ -4,7 +4,7 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 ruby '~> 4.0.0'
 
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
-gem 'rails', '~> 8.1.3'
+gem 'rails', '~> 8.1.4'
 # Rails isn't compatible with JSON 3, but doesn't declare it. Remove on next rails release.
 gem 'json', '~> 2.21.2'
 
@@ -21,8 +21,8 @@ gem 'rugged', '~> 1.9.6'
 gem 'github_api', '~> 0.19.0'
 
 # Use sentry to report errors
-gem 'sentry-rails', '~> 7.0.0'
-gem 'sentry-ruby', '~> 7.0.0'
+gem 'sentry-rails', '~> 7.1.0'
+gem 'sentry-ruby', '~> 7.1.0'
 
 # Use solid queue for executing jobs in the background
 gem 'solid_queue', '~> 1.7.0'
