@@ -36,7 +36,7 @@ gem 'bootsnap', '~> 1.26.1', require: false
 
 group :development, :test do
   # Use the Puma web server [https://github.com/puma/puma]
-  gem 'puma', '~> 8.0'
+  gem 'puma', '~> 8.1'
 
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
   gem 'debug', '~> 1.11.1', platforms: %i[mri mingw x64_mingw]
