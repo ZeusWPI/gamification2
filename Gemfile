@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby '~> 4.0.0'
+ruby '~> 4.0.10'
 
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
 gem 'rails', '~> 8.1.4'
@@ -44,7 +44,7 @@ end
 
 group :development do
   gem 'annotaterb', '~> 4.26', require: false
-  gem 'brakeman', '~> 8.1.0', require: false
+  gem 'brakeman', '~> 8.1.1', require: false
   gem 'rubocop', '~> 1.92.3', require: false
   gem 'rubocop-minitest', '~> 0.41.0', require: false
   gem 'rubocop-rails', '~> 2.38', require: false
