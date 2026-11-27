@@ -84,7 +84,7 @@ GEM
     base64 (0.3.0)
     bigdecimal (4.1.3)
     bindex (0.8.1)
-    bootsnap (1.26.1)
+    bootsnap (1.26.2)
       msgpack (~> 1.5)
     brakeman (8.1.0)
       racc
@@ -387,7 +387,7 @@ PLATFORMS
 
 DEPENDENCIES
   annotaterb (~> 4.26)
-  bootsnap (~> 1.26.1)
+  bootsnap (~> 1.26.2)
   brakeman (~> 8.1.0)
   capybara (~> 3.40.0)
   debug (~> 1.11.1)
